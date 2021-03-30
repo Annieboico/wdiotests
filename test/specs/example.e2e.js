@@ -2,8 +2,12 @@ import LoginPage from '../pageobjects/login.page';
 import ProfilePage from '../pageobjects/profile.page';
 
 describe('Authorization', () => {
-    it('user log in with valid data', () => {
+    beforeEach( () => {
         LoginPage.open();
+    })
+
+    it('user log in with valid data', () => {
+
         LoginPage.setLogin('Anyrose823@gmail.com');
         LoginPage.setPassword('Dream2020');
         LoginPage.clickSubmitButton();
@@ -12,10 +16,13 @@ describe('Authorization', () => {
     });
 
     it('Submit button is disabled if login and password absent', () => {
-        LoginPage.open();
+
         LoginPage.submitButtonDisabled();
 
     })
+    afterEach(()=> {
+        browser.execute('window.localStorage.clear()');
+    });
 });
 
 

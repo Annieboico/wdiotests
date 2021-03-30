@@ -9,7 +9,7 @@ class LoginPage extends Page {
     get btnSubmit () { return $('.login-form-button') }
 
     open () {
-        return super.open('/user/login');
+        return super.open('/');
     }
 
     setLogin (email){
